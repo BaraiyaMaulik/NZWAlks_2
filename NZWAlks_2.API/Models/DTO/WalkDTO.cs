@@ -10,6 +10,6 @@
 
         //Navigation Property
         public RegionDTO Region { get; set; }
-        public WalkDifficultyDTO WalkDifficulty { get; set; }
+        public WalkDifficultyRequestDTO WalkDifficulty { get; set; }
     }
 }

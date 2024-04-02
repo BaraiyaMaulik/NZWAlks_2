@@ -15,7 +15,7 @@ namespace NZWAlks_2.API.Profiles
                 ReverseMap().
                 ForMember(dest => dest.Id, options => options.MapFrom(src => src.Id));
 
-            CreateMap<WalkDifficulty, WalkDifficultyDTO>().
+            CreateMap<WalkDifficulty, WalkDifficultyRequestDTO>().
                 ReverseMap().
                 ForMember(dest => dest.Id, options => options.MapFrom(src => src.Id));
         }

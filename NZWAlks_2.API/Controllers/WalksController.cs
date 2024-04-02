@@ -108,7 +108,7 @@ namespace NZWAlks_2.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> DeleteWalkAsync(Guid id)
         {
-            //Call Repository to Delete Walk
+            //Call Domain Repository to Delete Walk
             var walkDomain = await walkRepository.DeleteAsync(id);
 
             if (walkDomain == null)
