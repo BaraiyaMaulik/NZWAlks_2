@@ -16,3 +16,6 @@ Install Automapper Packages
 Automapper [For Dot Net 6 Install Version 11]
 Automapper.Extensions.Microsoft.DependencyInjection [For Dot Net 6 Install Version 11]
 ------------------------------------------------------------------------------------------------------------------
+Now using simple validation in the controller, I am going to use validation in Region Controller,
+Walk Controller,WalkDifficulties Controller
+------------------------------------------------------------------------------------------------------------------
