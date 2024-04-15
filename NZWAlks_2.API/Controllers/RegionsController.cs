@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NZWAlks_2.API.Models.Domain;
 using NZWAlks_2.API.Models.DTO;
@@ -8,6 +9,7 @@ namespace NZWAlks_2.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     //https://localhost:7259/Regions
     public class RegionsController : Controller
     {
@@ -109,6 +111,7 @@ namespace NZWAlks_2.API.Controllers
         //}
 
         [HttpGet]
+        [Authorize(Roles = "reader")]
         public async Task<IActionResult> GetAllRegions_Repo_AutoMapper()
         {
             //Domain model
@@ -122,6 +125,7 @@ namespace NZWAlks_2.API.Controllers
         [HttpGet]
         [Route("{id:guid}")]
         [ActionName("GetRegionAsync")]
+        [Authorize(Roles = "reader")]
         public async Task<IActionResult> GetRegionAsync(Guid id)
         {
             //Domain Model
@@ -138,13 +142,16 @@ namespace NZWAlks_2.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "writer")]
         public async Task<IActionResult> AddRegionAsync(AddRegionRequest addRegionRequest)
         {
-            //Validate the Request => if false
-            if(!ValidateAddRegionAsync(addRegionRequest))
-            {
-                return BadRequest(ModelState);
-            }
+            //We have used Fluent Validation here
+
+            ////Validate the Request => if false
+            //if(!ValidateAddRegionAsync(addRegionRequest))
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
 
             //Request(DTO) to Domain Model
@@ -179,6 +186,8 @@ namespace NZWAlks_2.API.Controllers
 
         [HttpDelete]
         [Route("{id:guid}")]
+        [Authorize(Roles = "writer")]
+
         public async Task<IActionResult> DeleteRegionAsync(Guid id)
         {
             //Get region from database
@@ -207,13 +216,16 @@ namespace NZWAlks_2.API.Controllers
 
         [HttpPut]
         [Route("{id:guid}")]
+        [Authorize(Roles = "writer")]
         public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id, [FromBody] UpdateRegionRequest updateRegionRequest)
         {
+            //We have used Fluent Validation here
+
             //Validate the incoming Request => if false
-            if(!ValidateUpdateRegionAsync(updateRegionRequest))
-            {
-                return BadRequest(ModelState);
-            }
+            //if(!ValidateUpdateRegionAsync(updateRegionRequest))
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             //Convert DTO to Domain Model
             var regionDomain = new Region()

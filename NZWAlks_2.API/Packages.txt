@@ -19,3 +19,19 @@ Automapper.Extensions.Microsoft.DependencyInjection [For Dot Net 6 Install Versi
 Now using simple validation in the controller, I am going to use validation in Region Controller,
 Walk Controller,WalkDifficulties Controller
 ------------------------------------------------------------------------------------------------------------------
+Install Packages for Fluent Validation (Website:fluentvalidation.net)
+1.FluentValidation
+2.FluentValidation.AspNetCore
+3.FluentValidation.DependencyInjectionExtensions
+------------------------------------------------------------------------------------------------------------------
+Section 8 (Authentication and Authorization)
+1.Microsoft.AspNetCore.Authentication.JwtBearer [6.0.3]
+2.Microsoft.IdentityModel.Tokens [6.16.0]
+3.System.IdentityModel.Tokens.Jwt [6.16.0]
+------------------------------------------------------------------------------------------------------------------
+Status 401
+The 401 Unauthorized status code is a client-side error that occurs when a user tries to access a page that is 
+protected by the server, but the server requires the correct login details to grant access. This status code
+is similar to the 403 Forbidden status code, except that in situations resulting in this status code, 
+user authentication can allow access to the resource
+------------------------------------------------------------------------------------------------------------------
