@@ -58,8 +58,9 @@ internal class Program
         builder.Services.AddScoped<IWalkDifficultiesRepository, WalkDifficultiesRepository>();
         builder.Services.AddScoped<ITokenHandler, NZWAlks_2.API.Repositories.TokenHandler>();
 
-        builder.Services.AddSingleton<IUserRepository, StaticUserRepository>();
-        
+        //builder.Services.AddSingleton<IUserRepository, StaticUserRepository>();
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
         //used version 11 of Automapper
         builder.Services.AddAutoMapper(typeof(Program).Assembly);
